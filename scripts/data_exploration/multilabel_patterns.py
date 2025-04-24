@@ -26,23 +26,48 @@ def compute_cooccurrence_matrix(df):
                     co_matrix.loc[label_j, label_i] += 1  # symmetric
     return co_matrix
 
-def plot_cooccurrence_matrix(co_matrix):
+def compute_exact_span_cooccurrence_matrix(df):
+    """
+    Computes a co-occurrence matrix for labels assigned to the exact same span (same doc_id, start, end).
+    Expects a pandas DataFrame with columns: ['doc_id', 'label', 'start', 'end'].
+    Returns a pandas DataFrame with the co-occurrence counts.
+    """
+    all_labels = sorted(set(df['label']))
+    co_matrix = pd.DataFrame(0, index=all_labels, columns=all_labels)
+
+    # Group by exact span
+    grouped = df.groupby(['doc_id', 'start', 'end'])
+    for _, group in grouped:
+        labels = group['label'].unique()
+        if len(labels) > 1:
+            for i in range(len(labels)):
+                for j in range(i + 1, len(labels)):
+                    co_matrix.loc[labels[i], labels[j]] += 1
+                    co_matrix.loc[labels[j], labels[i]] += 1  # symmetric
+    return co_matrix
+
+def plot_cooccurrence_matrix(co_matrix, title='Co-occurrence Matrix', ax=None):
     """
     Plots the co-occurrence matrix using seaborn heatmap with red shades only.
+    If ax is provided, plot on that axes; otherwise, create a new figure.
     """
-    plt.figure(figsize=(16, 14))  # Increased figure size
+    if ax is None:
+        plt.figure(figsize=(16, 14))
+        ax = plt.gca()
     sns.heatmap(
         co_matrix,
         annot=True,
         fmt='d',
-        cmap='Reds',  # Red shades only
+        cmap='Reds',
         cbar=True,
-        annot_kws={"size": 10}
+        annot_kws={"size": 10},
+        ax=ax
     )
-    plt.title('Co-occurrence Matrix', fontsize=18)
-    plt.xlabel('Labels', fontsize=14)
-    plt.ylabel('Labels', fontsize=14)
-    plt.xticks(rotation=45, ha='right', fontsize=10)
-    plt.yticks(rotation=0, fontsize=10)
+    ax.set_title(title, fontsize=18)
+    ax.set_xlabel('Labels', fontsize=14)
+    ax.set_ylabel('Labels', fontsize=14)
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right', fontsize=10)
+    ax.set_yticklabels(ax.get_yticklabels(), rotation=0, fontsize=10)
     plt.tight_layout()
-    plt.show()
+    if ax is None:
+        plt.show()
