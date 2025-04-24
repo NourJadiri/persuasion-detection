@@ -26,17 +26,23 @@ def compute_cooccurrence_matrix(df):
                     co_matrix.loc[label_j, label_i] += 1  # symmetric
     return co_matrix
 
-
 def plot_cooccurrence_matrix(co_matrix):
     """
-    Plots the co-occurrence matrix using seaborn heatmap.
+    Plots the co-occurrence matrix using seaborn heatmap with red shades only.
     """
-    plt.figure(figsize=(12, 10))
-    sns.heatmap(co_matrix, annot=True, fmt='d', cmap='Blues', cbar=True)
-    plt.title('Co-occurrence Matrix')
-    plt.xlabel('Labels')
-    plt.ylabel('Labels')
-    plt.xticks(rotation=45)
-    plt.yticks(rotation=0)
+    plt.figure(figsize=(16, 14))  # Increased figure size
+    sns.heatmap(
+        co_matrix,
+        annot=True,
+        fmt='d',
+        cmap='Reds',  # Red shades only
+        cbar=True,
+        annot_kws={"size": 10}
+    )
+    plt.title('Co-occurrence Matrix', fontsize=18)
+    plt.xlabel('Labels', fontsize=14)
+    plt.ylabel('Labels', fontsize=14)
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.yticks(rotation=0, fontsize=10)
     plt.tight_layout()
     plt.show()
