@@ -4,3 +4,5 @@
 !/data/
 # Optionally, do not ignore README or other documentation
 !/data/README.md
+
+.vscode/
