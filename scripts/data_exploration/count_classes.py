@@ -28,3 +28,4 @@ if __name__ == "__main__":
     class_counts = count_classes(label_files)
     df = pd.DataFrame(class_counts.items(), columns=["Class", "Count"]).sort_values("Count", ascending=False)
     print(df)
+    df.to_csv("class_counts.csv", index=False)
