@@ -2,6 +2,49 @@ import os
 from dotenv import load_dotenv
 import openai
 
+PERSUASION_TECHNIQUES = """
+Name_Calling-Labeling
+Guilt_by_Association
+Doubt
+Appeal_to_Hypocrisy
+Questioning_the_Reputation
+Flag_Waving
+Appeal_to_Authority
+Appeal_to_Popularity
+Appeal_to_Values
+Appeal_to_Fear-Prejudice
+Straw_Man
+Red_Herring
+Whataboutism
+Appeal_to_Pity
+Causal_Oversimplification
+False_Dilemma-No_Choice
+Consequential_Oversimplification
+False_Equivalence
+Slogans
+Conversation_Killer
+Appeal_to_Time
+Loaded_Language
+Obfuscation-Vagueness-Confusion
+Exaggeration-Minimisation
+Repetition
+""".strip().replace("\n", ", ")
+
+def build_prompt(text: str, src: str, tgt: str) -> str:
+    return (
+        "You are a professional translator.\n\n"
+        "Task:\n"
+        f"1. Translate the following {src} text into natural, idiomatic {tgt}. Aim for a **neutral** register.\n"
+        "2. Keep every span token exactly as it appears, including the text wrapped inside:\n"
+        "   <<S_1>> … <</S_1>>, <<S_2>> … <</S_2>>, etc.\n"
+        "3. Preserve the rhetorical nuance of each persuasion technique so they remain recognisable.\n"
+        f"   Techniques list: {PERSUASION_TECHNIQUES}.\n"
+        "4. Do NOT add or remove tokens, change their numbering, summarise or omit content.\n\n"
+        "Source text:\n```text\n"
+        f"{text}\n```\n\n"
+        "Output (translated text with identical tokens):"
+    )
+
 def gpt_translate(text, source_lang, target_lang, client):
     """
     Translates text from source_lang to target_lang using OpenAI GPT-4.1 API.
@@ -31,7 +74,11 @@ def gpt_translate(text, source_lang, target_lang, client):
         raise ValueError("Target language code must be a non-empty string.")
 
     # Construct the prompt for translation using language codes
-    prompt = f"Translate the following text from {source_lang} to {target_lang}:\n\n{text}"
+    prompt = build_prompt(
+        text=text,
+        src=source_lang,
+        tgt=target_lang
+    )
 
     # Call the OpenAI API for translation
     response = client.responses.create(
@@ -46,79 +93,100 @@ def gpt_translate(text, source_lang, target_lang, client):
 
     return translated_text
 
-def print_span(article_number, start_offset, end_offset, lang="en", base_path="data/raw"):
-    article_path = f"{base_path}/{lang}/train-articles-subtask-3/article{article_number}.txt"
-    with open(article_path, "rb") as f:
-        raw = f.read()
-    text = raw.decode("utf-8", errors="ignore")
-    span = text[start_offset:end_offset]
-    print(span)
-
-import re
-import os
-
-def clean_existing_tokens(text):
-    # Remove anything like <<S_23>> or <</S_23>>
-    return re.sub(r"<<\/?S_\d+>>", "", text)
-
-def wrap_annotated_spans(article_path, spans, output_folder=None, token_prefix="S"):
-    with open(article_path, "rb") as f:
-        raw = f.read()
-    text = raw.decode("utf-8", errors="ignore")
-
-    # STEP 1: clean previous tokens
-    text = clean_existing_tokens(text)
-    
-    text_length = len(text)
-    # Check if spans are within the text length
-    valid_spans = []
-    for start, end in spans:
-        if 0 <= start < end <= text_length:
-            valid_spans.append((start, end))
-        else:
-            print(f"⚠️ Skipping invalid span ({start}, {end}) for article {article_path}")
-
-    valid_spans = sorted(valid_spans, key=lambda x: x[0], reverse=True)
-
-    for idx, (start, end) in enumerate(valid_spans, 1):
-        open_token = f"<<{token_prefix}_{idx}>>"
-        close_token = f"<</{token_prefix}_{idx}>>"
-        text = text[:start] + open_token + text[start:end] + close_token + text[end:]
-
-    return text
-
-def wrap_spans_from_file(labels_file, articles_folder, output_folder, lang="en", token_prefix="S"):
+def translate_file_to_language(input_path, target_lang, client, base_dir="data/processed"):
     """
-    Reads a span annotation file and wraps the spans in the corresponding article files.
+    Translates the content of a file to the target language and saves it in the corresponding folder.
+
     Args:
-        labels_file (str): Path to the span annotation file (e.g., train-labels-subtask-3-spans.txt).
-        articles_folder (str): Path to the folder containing article text files.
-        output_folder (str): Path to the folder to write wrapped articles.
-        lang (str): Language code (default: 'en').
-        token_prefix (str): Prefix for the span tokens (default: 'S').
+        input_path (str): Path to the source file (e.g., data/processed/fr/article2318.txt).
+        target_lang (str): Target language code (e.g., 'ru').
+        client: Initialized OpenAI client.
+        base_dir (str): Base directory for processed data.
+
+    Returns:
+        str: Path to the saved translated file.
     """
-    import os
-    from collections import defaultdict
+    # Extract source language and filename
+    parts = input_path.split(os.sep)
+    if len(parts) < 3:
+        raise ValueError("Input path must be like data/processed/{src_lang}/filename.txt")
+    src_lang = parts[2]
+    filename = parts[-1]
 
-    # Collect spans per article
-    article_spans = defaultdict(list)
-    with open(labels_file, "r", encoding="utf-8") as f:
-        for line in f:
-            parts = line.strip().split("\t")
-            if len(parts) < 4:
-                continue
-            article_id, label, start, end = parts[:4]
-            article_spans[article_id].append((int(start), int(end)))
+    # Read the source text
+    with open(input_path, "r", encoding="utf-8") as f:
+        text = f.read()
 
-    os.makedirs(output_folder, exist_ok=True)
+    # Translate
+    translated_text = gpt_translate(text, src_lang, target_lang, client)
 
-    # For each article, wrap spans and write output
-    for article_id, spans in article_spans.items():
-        article_path = os.path.join(articles_folder, f"article{article_id}.txt")
-        if not os.path.exists(article_path):
-            print(f"Warning: Article file not found: {article_path}")
-            continue
-        wrapped_text = wrap_annotated_spans(article_path, spans, token_prefix=token_prefix)
-        output_path = os.path.join(output_folder, f"article{article_id}.txt")
-        with open(output_path, "w", encoding="utf-8") as out_f:
-            out_f.write(wrapped_text)
+    # Prepare output path
+    output_dir = os.path.join(base_dir, target_lang)
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, filename)
+
+    # Save translated text using raw byte encoding
+    with open(output_path, "wb") as f:
+        f.write(translated_text.encode("utf-8"))
+
+    return output_path
+
+
+def count_characters_in_wrapped_articles(language_code, base_dir="data/processed"):
+    """
+    Counts the total number of characters in all text files inside
+    data/processed/{language_code}/wrapped-articles.
+
+    Args:
+        language_code (str): The language code (e.g., 'en', 'fr').
+        base_dir (str): The base directory path.
+
+    Returns:
+        int: Total number of characters in all text files.
+    """
+    folder = os.path.join(base_dir, language_code, "wrapped-articles")
+    total_chars = 0
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        if os.path.isfile(file_path) and filename.endswith(".txt"):
+            with open(file_path, "r", encoding="utf-8") as f:
+                total_chars += len(f.read())
+    return total_chars
+
+def total_characters_all_languages(base_dir="data/processed"):
+    """
+    Computes the total number of characters across all language folders
+    within the base directory.
+
+    Args:
+        base_dir (str): The base directory path containing language folders.
+
+    Returns:
+        int: Total number of characters across all language folders.
+    """
+    total_chars = 0
+    if not os.path.isdir(base_dir):
+        print(f"Error: Base directory '{base_dir}' not found.")
+        return 0
+
+    for lang_code in os.listdir(base_dir):
+        lang_path = os.path.join(base_dir, lang_code)
+        # Check if it's a directory and if the 'wrapped-articles' subfolder exists
+        articles_path = os.path.join(lang_path, "wrapped-articles")
+        if os.path.isdir(lang_path) and os.path.isdir(articles_path):
+            try:
+                total_chars += count_characters_in_wrapped_articles(lang_code, base_dir)
+            except FileNotFoundError:
+                # Handle cases where wrapped-articles might exist but is empty or has issues
+                print(f"Warning: Could not process folder for language '{lang_code}'. Skipping.")
+            except Exception as e:
+                print(f"An error occurred processing language '{lang_code}': {e}")
+
+    return total_chars
+
+# Example usage:
+if __name__ == "__main__":
+    en_count = count_characters_in_wrapped_articles('en')
+    fr_count = count_characters_in_wrapped_articles('fr')
+    print(f"Total characters in 'en': {en_count}")
+    print(f"Total characters in 'fr': {fr_count}")
