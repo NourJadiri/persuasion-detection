@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import openai
+import aiofiles
 
 PERSUASION_TECHNIQUES = """
 Name_Calling-Labeling
@@ -44,7 +45,7 @@ def build_prompt(text: str, src: str, tgt: str) -> str:
         f"{text}\n```\n\n"
         "Output (translated text with identical tokens):"
     )
-
+    
 def gpt_translate(text, source_lang, target_lang, client):
     """
     Translates text from source_lang to target_lang using OpenAI GPT-4.1 API.
@@ -56,11 +57,6 @@ def gpt_translate(text, source_lang, target_lang, client):
     Returns:
         str: The translated text.
     """
-    # Load environment variables from .env file
-    load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    if not openai.api_key:
-        raise ValueError("API key not found. Please set the OPENAI_API_KEY environment variable.")
     # Check if the client is initialized
     if client is None:
         raise ValueError("Client is not initialized. Please provide a valid OpenAI client.")
@@ -82,6 +78,49 @@ def gpt_translate(text, source_lang, target_lang, client):
 
     # Call the OpenAI API for translation
     response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "user", "content": prompt}
+        ],
+    )
+
+    # Extract the translated text from the response
+    translated_text = response.output_text
+
+    return translated_text
+
+async def async_gpt_translate(text, source_lang, target_lang, client):
+    """
+    Translates text from source_lang to target_lang using OpenAI GPT-4.1 API.
+    Loads the API key from a .env file.
+    Args:
+        text (str): The text to translate.
+        source_lang (str): The source language code (e.g., 'en').
+        target_lang (str): The target language code (e.g., 'fr').
+    Returns:
+        str: The translated text.
+    """
+    # Check if the client is initialized
+    if client is None:
+        raise ValueError("Client is not initialized. Please provide a valid OpenAI client.")
+    # Validate the input text
+    if not isinstance(text, str) or not text.strip():
+        raise ValueError("Input text must be a non-empty string.")
+    # Validate the source and target language codes
+    if not isinstance(source_lang, str) or not source_lang.strip():
+        raise ValueError("Source language code must be a non-empty string.")
+    if not isinstance(target_lang, str) or not target_lang.strip():
+        raise ValueError("Target language code must be a non-empty string.")
+
+    # Construct the prompt for translation using language codes
+    prompt = build_prompt(
+        text=text,
+        src=source_lang,
+        tgt=target_lang
+    )
+
+    # Call the OpenAI API for translation
+    response = await client.responses.create(
         model="gpt-4.1-mini",
         input=[
             {"role": "user", "content": prompt}
@@ -121,14 +160,38 @@ def translate_file_to_language(input_path, target_lang, client, base_dir="data/p
     translated_text = gpt_translate(text, src_lang, target_lang, client)
 
     # Prepare output path
-    output_dir = os.path.join(base_dir, target_lang)
+    output_dir = os.path.join(base_dir, target_lang, "wrapped-articles")
     os.makedirs(output_dir, exist_ok=True)
+    
     output_path = os.path.join(output_dir, filename)
 
     # Save translated text using raw byte encoding
     with open(output_path, "wb") as f:
         f.write(translated_text.encode("utf-8"))
 
+    return output_path
+
+
+async def async_translate_file_to_language(input_path, target_lang, client, base_dir="data/processed"):
+    # Extract source language and filename
+    parts = input_path.split(os.sep)
+    if len(parts) < 3:
+        raise ValueError("Input path must be like data/processed/{src_lang}/filename.txt")
+    src_lang = parts[2]
+    filename = parts[-1]
+
+    # Read the source text
+    async with aiofiles.open(input_path, "r", encoding="utf-8") as f:
+        text = await f.read()
+    # Translate
+    translated_text = await async_gpt_translate(text, src_lang, target_lang, client)
+    # Prepare output path
+    output_dir = os.path.join(base_dir, target_lang)
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, filename)
+    # Save translated text using raw byte encoding
+    async with aiofiles.open(output_path, "wb") as f:
+        await f.write(translated_text.encode("utf-8"))
     return output_path
 
 
