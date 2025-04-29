@@ -186,7 +186,7 @@ async def async_translate_file_to_language(input_path, target_lang, client, base
     # Translate
     translated_text = await async_gpt_translate(text, src_lang, target_lang, client)
     # Prepare output path
-    output_dir = os.path.join(base_dir, target_lang)
+    output_dir = os.path.join(base_dir, target_lang, "wrapped-articles")
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, filename)
     # Save translated text using raw byte encoding
@@ -247,9 +247,37 @@ def total_characters_all_languages(base_dir="data/processed"):
 
     return total_chars
 
-# Example usage:
-if __name__ == "__main__":
-    en_count = count_characters_in_wrapped_articles('en')
-    fr_count = count_characters_in_wrapped_articles('fr')
-    print(f"Total characters in 'en': {en_count}")
-    print(f"Total characters in 'fr': {fr_count}")
+def prefix_translated_filenames(target_lang, source_lang, base_dir="data/processed"):
+    """
+    For each file in data/processed/{target_lang}/wrapped-articles, check if the same filename exists in
+    data/processed/{source_lang}/wrapped-articles. If so, rename the file in the target_lang folder to have
+    the prefix '{source_lang}_' in its filename.
+
+    Args:
+        target_lang (str): The target language code (e.g., 'ru').
+        source_lang (str): The source language code to check for (e.g., 'en').
+        base_dir (str): The base directory for processed data.
+    """
+    import os
+
+    target_dir = os.path.join(base_dir, target_lang, "wrapped-articles")
+    source_dir = os.path.join(base_dir, source_lang, "wrapped-articles")
+
+    if not os.path.isdir(target_dir) or not os.path.isdir(source_dir):
+        print(f"One of the directories does not exist: {target_dir} or {source_dir}")
+        return
+
+    source_files = set(os.listdir(source_dir))
+
+    for filename in os.listdir(target_dir):
+        target_path = os.path.join(target_dir, filename)
+        if not os.path.isfile(target_path):
+            continue
+        if filename in source_files:
+            new_filename = f"{source_lang}_{filename}"
+            new_path = os.path.join(target_dir, new_filename)
+            # Only rename if not already prefixed
+            if not filename.startswith(f"{source_lang}_"):
+                os.rename(target_path, new_path)
+                print(f"Renamed {filename} -> {new_filename}")
+

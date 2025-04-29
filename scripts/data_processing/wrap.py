@@ -74,3 +74,4 @@ def wrap_spans_from_file(labels_file, articles_folder, output_folder, lang="en",
         output_path = os.path.join(output_folder, f"article{article_id}.txt")
         with open(output_path, "w", encoding="utf-8") as out_f:
             out_f.write(wrapped_text)
+            
