@@ -174,13 +174,3 @@ def write_remapped_spans_to_file(remapped_spans, output_file):
     with open(output_file, "w", encoding="utf-8") as f:
         for span in remapped_spans:
             f.write(f"{span['token']}\t{span['label']}\t{span['new_start']}\t{span['new_end']}\n")
-
-if __name__ == "__main__":
-    # wrap articles in the russian folder
-    wrap_spans_from_file(
-        labels_file="data/raw/fr/train-labels-subtask-3-spans.txt",
-        articles_folder="data/raw/fr/train-articles-subtask-3",
-        output_folder="data/processed/fr/wrapped-articles",
-        lang="fr",
-        token_prefix="S"
-    )
