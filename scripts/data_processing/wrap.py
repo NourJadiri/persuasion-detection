@@ -1,38 +1,5 @@
 import re
 
-def remap_spans_in_wrapped_article(wrapped_text, token_label_mapping):
-    """
-    Given a wrapped article and the token-label mapping (from get_token_label_mapping_from_labels_file),
-    returns a list of dicts with token, label, new_start, new_end (span of the inner text, not including tokens).
-
-    Args:
-        wrapped_text (str): The text of the wrapped (possibly translated) article.
-        token_label_mapping (list): List of dicts for this article, each with 'token' and 'label'.
-
-    Returns:
-        List[dict]: Each dict has 'token', 'label', 'new_start', 'new_end'.
-    """
-    # Build a mapping from token to label
-    token_to_label = {d['token']: d['label'] for d in token_label_mapping}
-    results = []
-    # Regex to find all <<S_n>>...<</S_n>>
-    pattern = re.compile(r"<<(?P<token>S_\d+)>>(.*?)<</\\1>>", re.DOTALL)
-    for match in pattern.finditer(wrapped_text):
-        token = match.group('token')
-        inner_text = match.group(2)
-        # The span of the inner text (excluding tokens)
-        # match.start(2) and match.end(2) are the offsets of the inner text
-        new_start = match.start(2)
-        new_end = match.end(2)
-        label = token_to_label.get(token, None)
-        results.append({
-            'token': token,
-            'label': label,
-            'new_start': new_start,
-            'new_end': new_end
-        })
-    return results
-
 def print_span(article_number, start_offset, end_offset, lang="en", base_path="data/raw"):
     article_path = f"{base_path}/{lang}/train-articles-subtask-3/article{article_number}.txt"
     with open(article_path, "rb") as f:
@@ -40,9 +7,6 @@ def print_span(article_number, start_offset, end_offset, lang="en", base_path="d
     text = raw.decode("utf-8", errors="ignore")
     span = text[start_offset:end_offset]
     print(span)
-
-import re
-import os
 
 def clean_existing_tokens(text):
     # Remove anything like <<S_23>> or <</S_23>>
@@ -130,47 +94,16 @@ def wrap_spans_from_file(labels_file, articles_folder, output_folder, lang="en",
             continue
         wrapped_text = wrap_annotated_spans(article_path, spans, token_prefix=token_prefix)
         output_path = os.path.join(output_folder, f"article{article_id}.txt")
-        with open(output_path, "w", encoding="utf-8") as out_f:
-            out_f.write(wrapped_text)
-
-def get_token_label_mapping_from_labels_file(labels_file):
-    """
-    Reads a span annotation file and returns a mapping:
-    {
-        article_id: [
-            {"token": "S_1", "label": label, "orig_start": start, "orig_end": end},
-            ...
-        ],
-        ...
-    }
-    The order of tokens matches the reverse order used in wrap_annotated_spans.
-    """
-    from collections import defaultdict
-    mapping = defaultdict(list)
-    with open(labels_file, "r", encoding="utf-8") as f:
-        for line in f:
-            parts = line.strip().split("\t")
-            if len(parts) < 4:
-                continue
-            article_id, label, start, end = parts[:4]
-            mapping[article_id].append({
-                "label": label,
-                "orig_start": int(start),
-                "orig_end": int(end)
-            })
-    # Now, for each article, sort spans in reverse order and assign token numbers
-    for article_id, spans in mapping.items():
-        spans_sorted = sorted(spans, key=lambda x: x["orig_start"], reverse=True)
-        for idx, span in enumerate(spans_sorted, 1):
-            span["token"] = f"S_{idx}"
-        mapping[article_id] = spans_sorted
-    return mapping
-
-def write_remapped_spans_to_file(remapped_spans, output_file):
-    """
-    Writes the remapped spans to a file, one per line:
-    token<TAB>label<TAB>new_start<TAB>new_end
-    """
-    with open(output_file, "w", encoding="utf-8") as f:
-        for span in remapped_spans:
-            f.write(f"{span['token']}\t{span['label']}\t{span['new_start']}\t{span['new_end']}\n")
+        with open(output_path, "wb") as out_f:
+            out_f.write(wrapped_text.encode("utf-8"))
+            
+def map_new_spans(filename, text, target_folder, origin_folder):
+    src_lang = filename.split("_")[0]
+    # Extract the article number from the filename (e.g., fr_article1111.txt -> 1111)
+    match = re.search(r'article(\d+)\.txt', filename)
+    if match:
+        article_number = match.group(1)
+    else:
+        raise ValueError(f"Could not extract article number from filename: {filename}")
+    
+    

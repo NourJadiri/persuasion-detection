@@ -132,7 +132,7 @@ async def async_gpt_translate(text, source_lang, target_lang, client):
 
     return translated_text
 
-def translate_file_to_language(input_path, target_lang, client, base_dir="data/processed"):
+def translate_file_to_language(input_path, target_lang, client, base_dir="../data/processed"):
     """
     Translates the content of a file to the target language and saves it in the corresponding folder.
 
@@ -195,7 +195,7 @@ async def async_translate_file_to_language(input_path, target_lang, client, base
     return output_path
 
 
-def count_characters_in_wrapped_articles(language_code, base_dir="data/processed"):
+def count_characters_in_wrapped_articles(language_code, base_dir="../data/processed"):
     """
     Counts the total number of characters in all text files inside
     data/processed/{language_code}/wrapped-articles.
@@ -247,7 +247,7 @@ def total_characters_all_languages(base_dir="data/processed"):
 
     return total_chars
 
-def prefix_translated_filenames(target_lang, source_lang, base_dir="data/processed"):
+def prefix_translated_filenames(target_lang, source_lang, base_dir="../data/processed"):
     """
     For each file in data/processed/{target_lang}/wrapped-articles, check if the same filename exists in
     data/processed/{source_lang}/wrapped-articles. If so, rename the file in the target_lang folder to have
