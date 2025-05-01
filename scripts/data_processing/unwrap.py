@@ -112,9 +112,24 @@ def remap_folder(
 #     out_label_file="data/processed/ru/train-labels-subtask-3-spans-en.txt",
 # )
 
-remap_folder(
-    translated_dir="data/processed/ru/wrapped-articles",
-    src_lang="fr",                    # prefix in filenames
-    lookup_file="data/processed/fr/train-labels-subtask-3-spans.txt",
-    out_label_file="data/processed/ru/train-labels-subtask-3-spans-fr.txt",
-)
+def unwrap_articles(lang_dir: str):
+    """
+    Removes all <<S_NUMBER>> and <</S_NUMBER>> tokens from articles in lang_dir,
+    and saves the cleaned articles to a new 'unwrapped-articles' folder.
+    Shows a simple progression indicator.
+    """
+    base_dir = '../data/processed'
+    in_dir = os.path.join(base_dir, lang_dir, "wrapped-articles")
+    out_dir = os.path.join(base_dir, lang_dir, "unwrapped-articles")
+    os.makedirs(out_dir, exist_ok=True)
+    token_re = re.compile(r"<<\/?S_\d+>>")
+    files = [fname for fname in os.listdir(in_dir) if fname.endswith(".txt")]
+    total = len(files)
+    for idx, fname in enumerate(files, 1):
+        with open(os.path.join(in_dir, fname), encoding="utf-8") as fin:
+            text = fin.read()
+        cleaned = token_re.sub("", text)
+        with open(os.path.join(out_dir, fname), "w", encoding="utf-8") as fout:
+            fout.write(cleaned)
+        print(f"\rProcessing {idx}/{total} files...", end="", flush=True)
+    print("\nDone.")
