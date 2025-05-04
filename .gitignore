@@ -10,3 +10,8 @@
 **.pyc
 
 notebooks/results_combined*
+
+# Ignore directories inside the notebooks directory
+# but do not ignore the directory itself nor the files
+!/notebooks/
+notebooks/*/
