@@ -1,0 +1,13 @@
+trail_BG_1.txt	2172	2914	Doubt
+trail_BG_1.txt	2918	3502	Loaded_Language	Doubt
+trail_BG_1.txt	5086	5734	Loaded_Language	Questioning_the_Reputation	Whataboutism	Name_Calling-Labeling	Repetition
+trail_BG_1.txt	5738	5935	Whataboutism
+trail_BG_1.txt	7706	7928	Loaded_Language	Doubt
+trail_BG_1.txt	7932	8270	Doubt
+trail_BG_2.txt	2820	3353	Conversation_Killer	Appeal_to_Hypocrisy
+trail_BG_2.txt	3356	3666	Appeal_to_Hypocrisy	Loaded_Language
+trail_BG_2.txt	3669	3975	Loaded_Language	Slogans	Questioning_the_Reputation	Appeal_to_Values	Name_Calling-Labeling
+trail_BG_2.txt	4159	4793	Appeal_to_Hypocrisy
+trail_BG_2.txt	4796	5182	Slogans	Name_Calling-Labeling
+trail_BG_2.txt	5334	5595	Loaded_Language	Name_Calling-Labeling
+trail_BG_2.txt	5598	5695	Name_Calling-Labeling

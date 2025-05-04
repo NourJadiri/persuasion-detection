@@ -1,0 +1,7 @@
+RU_discrediting_the_west_1.txt	28	207	Questioning_the_Reputation
+RU_discrediting_the_west_1.txt	296	416	Questioning_the_Reputation
+RU_discrediting_the_west_1.txt	606	878	Appeal_to_Values	Appeal_to_Fear-Prejudice
+RU_discrediting_the_west_1.txt	1258	1466	Appeal_to_Fear-Prejudice
+RU_discrediting_the_west_1.txt	1635	1834	Consequential_Oversimplification
+RU_discrediting_the_west_1.txt	1836	2138	Appeal_to_Values
+RU_discrediting_the_west_1.txt	2140	2176	Conversation_Killer

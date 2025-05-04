@@ -1,0 +1,6 @@
+SI_sample_0.txt	96	3911	Flag_Waving	Loaded_Language	Appeal_to_Pity	Appeal_to_Values	Appeal_to_Popularity	Appeal_to_Fear-Prejudice
+SI_sample_1.txt	89	423	Consequential_Oversimplification	Appeal_to_Values
+SI_sample_1.txt	425	690	Consequential_Oversimplification	Loaded_Language
+SI_sample_1.txt	692	1133	Flag_Waving	Appeal_to_Values	Red_Herring
+SI_sample_1.txt	1135	1331	Appeal_to_Fear-Prejudice
+SI_sample_1.txt	1333	1769	Appeal_to_Values	Red_Herring
