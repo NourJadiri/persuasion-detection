@@ -1,0 +1,35 @@
+Como o vírus da Covid-19 faz refém a dopamina, hormona da felicidade
+
+Um novo estudo, desenvolvido por investigadores da Weill Cornell Medicine, da Universidade de Columbia, e do Memorial Sloan Kettering Cancer Center, em Nova Iorque, nos EUA, concluiu que pode haver um motivo biológico que justifique porque é que algumas pessoas ficaram mais tristes ou irritadas após recuperarem da Covid-19.
+
+De acordo com a equipa, que realizou diferentes experiências laboratoriais utilizando células humanas, o SARS-CoV-2 pode infetar as células cerebrais responsáveis pelo humor, stress e movimento, impedindo o seu correto funcionamento.
+
+Mais especificamente, os investigadores perceberam que o vírus da Covid-19 prejudica a produção de dopamina, também conhecida por hormona da felicidade, deteriorando as células ao ponto de elas não conseguirem crescer e dividir-se.
+
+Este neurotransmissor – substâncias químicas produzidas e libertadas principalmente no cérebro – induz os impulsos nervosos que nos oferecem informações ligadas à chamada via da recompensa, através da qual ganhamos consciência do que nos proporciona bem-estar, numa relação causa-efeito.
+
+Associada a várias outras funções do corpo humano, tanto cognitivas como motoras, a dopamina tem sido bastante estudada, até porque a sua desregulação, seja por excesso ou por défice, é uma causa de doenças como esquizofrenia ou Parkinson e de problemas como a adição.
+
+Além disso, é responsável pela regulação do sono, concentração, aprendizagem de movimentos e memória e, por isso mesmo, esta descoberta poderia ajudar a explicar por que motivo a Covid-19 provoca sintomas como confusão mental e tristeza.
+
+“Resultado completamente inesperado”
+
+A equipa do estudo, publicado na Cell Stem Cell, utilizou células-tronco para criar vários tipos de células encontradas no corpo humano, com o objetivo de perceber como o vírus da Covid-19 afetava cada uma delas.
+
+Contudo, obteve um “resultado completamente inesperado”: a análise das células permitiu concluir que apenas os neurónios dopaminérgicos foram infetados pelo SARS-CoV-2, o que fez com que deixassem de funcionar e enviassem sinais químicos que causam inflamação.
+
+A equipa descreve que cerca de 5% dos neurónios dopaminérgicos podem ser infetados pelo vírus da Covid-19, o que conduz à senescência e à inflamação. “Este projeto começou com o objetivo de investigar como vários tipos de células em diferentes órgãos respondem à infeção por SARS-CoV-2. Testámos células pulmonares, células cardíacas, células beta pancreáticas, mas a via da senescência só é ativada em neurónios da dopamina”, reafirma Shuibing Chen, da Weill Cornell Medicine, e autor sénior da investigação.
+
+A senescência corresponde ao processo natural de envelhecimento a nível celular, em que existe uma deterioração gradual da função dos organismos vivos, o que resulta na incapacidade de as células saudáveis crescerem e dividirem-se.
+
+“A taxa de infeção dos neurónios da dopamina não é tão elevada como a das células pulmonares, o principal alvo do vírus, mas mesmo uma pequena população de células infetadas pode ter um efeito potencialmente grave”, esclarece ainda Chen.
+
+Apesar dos resultados, os investigadores referem que nem todas as pessoas são suscetíveis de sofrer danos nos neurónios da dopamina, havendo uma série de fatores envolvidos no risco neurológico, incluindo a genética e a gravidade da doença, por exemplo.
+
+A equipa diz ainda que, devido ao facto de a senescência dos neurónios da dopamina ser uma caraterística comum da doença de Parkinson, é essencial que as pessoas que sofrem de Covid longa sejam acompanhadas com o objetivo de se conseguir detetar um possível risco acrescido de desenvolverem sintomas relacionados com esta condição.
+
+Medicamentos que podem ajudar
+
+Apesar das conclusões do estudo, a equipa percebeu, também, que três medicamentos podem potencialmente proteger os neurónios da dopamina contra a infeção pelo vírus da Covid-19: o riluzol, um medicamento comum no tratamento da doença de Lou Gehrig, a metformina, utilizada para tratar a diabetes, e o imatinib, usado para o tratamento da leucemia e outros tipos de cancro.
+
+Contudo, serão necessárias mais investigações que permitam testar efetivamente a eficácia destes medicamentos na proteção dos neurónios da dopamina.

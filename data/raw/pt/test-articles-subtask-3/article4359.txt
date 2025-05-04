@@ -1,0 +1,23 @@
+Dois novos efeitos secundários muito raros ligados a vacina contra a Covid-19 identificados em grande estudo mundial
+
+Um grande estudo mundial, que incluiu mais de 99 milhões de pessoas de vários países do mundo e foi publicado na revista internacional Vaccine, identificou dois novos efeitos secundários, embora muito raros, de uma das vacinas contra a Covid-19: uma perturbação neurológica e uma inflamação da medula espinal.
+
+Apesar disso, a equipa ressalva que os benefícios das vacinas contra a Covid-19 superam largamente os possíveis riscos associados. Os investigadores utilizaram dados anónimos da Global Vaccine Data Network, uma rede internacional de investigação que testa a eficácia e segurança das vacinas, para compararem a prevalência de 13 condições relativas ao cérebro, ao sangue e também cardíacas em pessoas que tinham recebido as vacinas contra a Covid-19 da Pfizer, Moderna ou AstraZeneca com a taxa que seria de esperar dessas doenças na população antes da pandemia.
+
+A partir desta análise, os cientistas tiraram com grande exatidão algumas conclusões: além de terem confirmado as ligações já conhecidas entre as vacinas de RNA mensageiro (mRNA), da Pfizer e Moderna, e os efeitos secundários raros de miocardite, inflamação do músculo cardíaco, frequentemente causada por infeções virais, e pericardite, inflamação da membrana que envolve o coração, o pericárdio, também confirmaram que a síndrome de Guillain-Barré, uma condição rara em que o sistema imunológico ataca os nervos periféricos, causando fraqueza muscular, por exemplo, é um efeito secundário raro associado à vacina da AstraZeneca.
+
+Apesar disso, Jim Buttery, um dos diretores da Global Vaccine Data Network, afirma que o risco de miocardite é ainda maior com a infeção natural por Covid-19 do que após a vacinação contra o vírus.
+
+Outra ligação desta vacina confirmada pelos autores do estudo, ainda que rara, foi a existência de casos de trombose do seio venoso cerebral (um tipo de coágulo sanguíneo no cérebro).
+
+Identificados dois novos efeitos secundários raros
+
+A partir da análise dos mesmos dados, relativos a pessoas da Austrália, Argentina, Canadá, Dinamarca, Finlândia, França, Nova Zelândia e Escócia, os investigadores identificaram um novo efeito secundário da vacina da AstraZeneca, que utiliza um adenovírus (um tipo de vírus) modificado, que não se replica no corpo humano, para transportar material genético que codifica a proteína spike do coronavírus SARS-CoV-2: a encefalomielite disseminada aguda (ADEM, na sigla inglesa).
+
+Esta é uma doença inflamatória do sistema nervoso central que afeta principalmente o cérebro e a medula espinal. Geralmente, é desencadeada por uma resposta imunológica anormal após infeções virais ou vacinação, levando a sintomas como febre, dor de cabeça, confusão mental e disfunção neurológica, e foi relacionada com a toma desta vacina pelos investigadores.
+
+Este resultado levou a equipa à realização de um segundo estudo, publicado na mesma revista, com o objetivo de testar de forma autónoma a existência deste efeito secundário. Para esta investigação, os investigadores analisaram um conjunto de dados separados de quase 7 milhões de australianos que tinham recebido a vacina da AstraZeneca.
+
+Além deste efeito secundário raro, que foi confirmado pela equipa – 0,78 casos por cada milhão de doses – também foi identificado um novo efeito secundário raro, conhecido como mielite transversa (1,82 casos por milhão de doses para esta condição), uma condição médica em que ocorre inflamação na medula espinal, afetando as fibras nervosas e interrompendo as comunicações entre a medula espinhal e o resto do corpo.
+
+Buttery explica ainda que “no caso dos efeitos secundários raros”, só é possível ter conhecimento deles “depois de a vacina ter sido utilizada em milhões de pessoas”, o que explica que estes efeitos da vacina contra a Covid-19 só estejam a ser identificados agora.

@@ -1,0 +1,35 @@
+Confronto viral: a batalha covid-19 vs. gripe em 2023/24 e o “roubo imunitário”
+
+As autoridades de saúde pública deveriam ter aumentado a comunicação nesta temporada, promovendo a confiança na vacinação e as medidas não farmacológicas tão propaladas durante a pandemia.
+
+A temporada de gripe e outros vírus respiratórios de 2023/24 é a primeira na história em que estamos munidos de vacinas contra os três agentes virais mais comuns na atualidade: gripe, SARS-CoV-2, (o agente causador da covid-19) e o vírus sincicial respiratório (responsável por quadros de bronquiolites nas crianças).
+
+Assim, embora a época 2022/23 tenha sido vista como uma “tripledemia” ou uma “tempestade perfeita”, agora, um ano depois, com estas três vacinas, estaremos numa situação melhor?
+
+De facto, em Portugal, esta temporada de 2023/24 tem tido um comportamento diferente do de anos anteriores. Apesar de no nosso país a vigilância ser insuficiente (sem qualquer referência à importância do rastreio das águas residuais...), os dados disponibilizados pela DGS/Instituto Ricardo Jorge mostram um cenário em que a gripe (predominantemente, o vírus H1N1 pdm09) é a principal responsável por idas aos centros de saúde e internamentos, quer em enfermaria, quer em cuidados intensivos (UCI). Aliás, em UCI atingiram-se 17,1% de internamentos por gripe, que é o valor mais alto dos últimos dez anos. Por outro lado, dados de vida real em Portugal (experiência do autor) parecem sugerir que a vacina antigripal desta temporada não reduz tanto a gravidade da doença, mesmo em indivíduos saudáveis...
+
+Ora qual será a causa? Será falta de eficácia da vacina criada nesta temporada? Menor cobertura vacinal da população? Ou será que o vírus circulante apresenta novas variações genéticas que o tornam mais agressivo? Ou será, ainda, que, para além do hiato (“gap”) imunitário (originado pela redução da propagação de outros patógenos durante o encerramento de escolas e obrigatoriedade de uso de máscara) na pandemia, haverá um “roubo” imunitário atribuível ao SARS-CoV-2?
+
+Estimativas provisórias de eficácia das vacinas contra a influenza do Hemisfério Sul em 2023 na prevenção de hospitalizações associadas à infecção apontam para uma redução do risco de hospitalizações associadas à gripe em 52% (Rede REVELAC-i). Contudo estes resultados, costumam variar ao longo da temporada gripal e a eficácia da vacina pode descer entretanto... Por isso, uma verdadeira estimativa da eficácia das vacinas só se consegue... a posteriori.
+
+Por outro lado, evidência publicada nos EUA mostra que, embora as temporadas gripais com o vírus influenza A H3N2 estejam tipicamente associadas a mais hospitalizações em geral, a gravidade hospitalar foi maior em indivíduos infectados com vírus influenza A H1N1pdm09 ou influenza B, em comparação com o vírus influenza A H3N2.
+
+Recentemente, foi descrito que isolados virais A(H1N1)pdm09 derivados de casos fatais manifestaram alterações genéticas nas proteínas PB2 e PA (que são subunidades da RNA polimerase viral) com mais frequência do que aqueles derivados de casos leves.
+
+Em Portugal, dados da DGS até 3/1/2024 mostram que as coberturas vacinais contra a covid-19 e contra a gripe, nos grupos etários com 60 ou mais anos, corresponderam a 53% e 62%, respetivamente (atingindo no Norte quase 70% para a gripe e 55% para a covid). Dados do Vacinómetro® (sondagem telefónica de 4011 pessoas) de 5/12/2023, mostram que 73,4% dos indivíduos de mais de 65 anos já se encontram vacinados, o que já se aproxima mais dos objetivos europeus que propõem mais de 75% de cobertura vacinal para a gripe.
+
+Ora, a vacina utilizada em Portugal inclui o vírus A (H1N1)pdm09 (subclade 5a.2a.1); será ele ligeiramente diferente ao que se encontra em circulação? Dados do Observatório europeu (ECDC - Centro Europeu de Prevenção e Controlo das Doenças) sugerem que durante a 40.ª semana de 2023 e a 1.ª semana de 2024, dos 234 vírus A(H1)pdm09 identificados na Europa, 90 foram relatados como pertencendo à clade 5a.2a e 144 foram subclade 5a.2a.1 (isto é, coincidindo com a vacina).
+
+Outra possível explicação para o aumento da suscetibilidade às infeções é o chamado “roubo” imunitário que se refere à noção de que o próprio SARS-CoV-2 rouba a imunidade, deixando algumas pessoas que tiveram covid-19 mais suscetíveis a outras infeções. Estudos científicos têm demonstrado que o vírus SARS-CoV-2, ao contrário do vírus da gripe, tem uma capacidade de destruir linfócitos T e “baralhar” a imunidade.
+
+Portanto, estes efeitos específicos do vírus da covid-19 sugerem que deveremos continuar a proteger as nossas populações desta ameaça! De tal forma que as instituições de saúde do Canadá já estão a programar um reforço vacinal contra o SARS-CoV-2 para os maiores de 65 anos, os residentes em lares e os imunocomprometidos, na Primavera de 2024.
+
+Que outras recomendações se poderá seguir?
+
+É sabido que existem vacinas antigripais de alta dose (que foram administradas aos idosos residentes em lares em Portugal) e que parecem proteger mais as pessoas de mais de 65 anos, com sistemas imunitários mais debilitados. Estas poderão ser recomendadas para aumentar a eficácia vacinal noutros grupos populacionais.
+
+Será boa ideia alargar a cobertura vacinal para grupos mais jovens? Esta ação foi recentemente tomada pela DGS que alargou vacinação antigripal gratuita também para os maiores de 50 anos. Esta medida, para além de proteger este grupo etário que também tem tido aumento da mortalidade, ao alargar a cobertura vacinal a mais pessoas poderá reduzir o impacto da infeção na população em geral.
+
+É claro que a última pandemia foi a covid-19, mas não podemos esquecer que a gripe ainda é uma ameaça. E, assim, as autoridades de saúde pública em Portugal deveriam ter aumentado a comunicação nesta temporada, promovendo a confiança na vacinação e as medidas não farmacológicas tão propaladas durante a pandemia. É que o vírus da gripe também se transmite por aerossóis e por indivíduos pouco sintomáticos.
+
+Assim, mesmo se vacinado contra a gripe e covid-19, continue a proteger-se, com o uso de máscara, melhore a ventilação quando ocupa espaços fechados, use etiqueta respiratória e lave bem as mãos. Se o fizer, todos nós ficaremos mais protegidos!

@@ -1,0 +1,21 @@
+Google prometeu que ia eliminar dados das visitas a clínicas de aborto
+
+No início de julho de 2022, a Google tinha anunciado que eliminaria os dados de localização das visitas a clínicas de abortos, mas também a centros de fertilização e instalações de reabilitação, locais considerados “pessoais” ou “sensíveis”.
+
+Esta decisão surgiu na sequência da decisão que revogou o direito constitucional à interrupção voluntária da gravidez (IVG) nos EUA, com a gigante tecnológica a mostrar-se preocupada com o facto de o rasto digital poder servir de prova de acusação, caso ocorresse um aborto em estados onde o procedimento foi proibido ou limitado.
+
+A empresa confirmou que, para os utilizadores que têm o histórico de localização ativo, esses locais seriam eliminados do histórico logo após a visita do utilizador. Contudo, um ano e meio depois desta decisão, um novo estudo concluiu que a Google ainda retém dados do histórico de localização em 50% dos casos.
+
+“Os dados de localização de um requerente de aborto ainda podem ser retidos e usados para processá-lo”, refere o estudo, acrescentando que a “Google ainda retém dados de consulta de pesquisa de localização e, provavelmente, outros dados incriminatórios”.
+
+Apesar de não ter referido quando é que essa medida seria implementada, um estudo conduzido pelo grupo tecnológico Accountable Tech, cinco meses depois do anúncio, mostrou, de acordo com o The Guardian, que a Google ainda não tinha eliminado quaisquer dados relativos aos históricos de localização desses locais.
+
+Nesta nova investigação, à qual o mesmo jornal teve acesso, a Accountable Tech descobriu, contudo, que embora a empresa ainda não tenha exlcluído o histórico de localização em todos os casos, tal como tinha prometido, a taxa de retenção do Google melhorou “ligeiramente”.
+
+Em comunicado, Marlo McGriff, gestor de produto da Google Maps, contestou as conclusões desta investigação, referindo que a marca “está a manter a promessa de eliminar locais particularmente pessoais do histórico de localização se esses locais forem identificados pelos sistemas”. “Qualquer afirmação de que não estamos a fazê-lo é totalmente falsa”, acrescentou.
+
+Para chegar a estas conclusões, a equipa realizou oito testes em sete estados norte-americanos – Pensilvânia, Texas, Nevada, Flórida, Nova York, Geórgia e Carolina do Norte – e, utilizando um dispositivo Android recente para se dirigir às clínicas de aborto, registou que dados de localização tinham sido armazenados.
+
+Os investigadores chegaram à conclusão de que, em quatro dos oito testes, o caminho para uma clínica de Planned Parenthood foi mantido no histórico de localização do dispositivo, embora o nome da clínica tenha sido apagado. Além disso, os dados sobre pesquisas de clínicas de aborto foram retidos na web e no histórico de atividade.
+
+A Accountable Tech refere ainda no estudo que a incapacidade de a Google cumprir metas antigas para proteger os utilizadores em relação a dados de localização mostra que a empresa “não é confiável para cumprir os seus compromissos públicos no prazo que promete”.
