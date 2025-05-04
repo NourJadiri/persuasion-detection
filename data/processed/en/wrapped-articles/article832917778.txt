@@ -1,0 +1,7 @@
+Reports: No New Indictments Will Come From Special Counsel Robert Mueller’s Probe
+
+No new indictments will come from Special Counsel Robert Mueller’s Russia probe after he submitted his final report to Attorney General William Barr, multiple outlets are reporting.
+A senior Justice Department official told The Washington Post that Mueller “has not recommended any further indictments.” “The investigation is complete,” Justice Department spokeswoman Kerri Kupec told the newspaper.
+The Mueller probe saw several within Trump's orbit indicted, but not <<S_1>>Trump’s family<</S_1>> or <<S_2>>Trump<</S_2>> himself.
+Some notable figures who have pleaded guilty in charges stemming from Mueller’s investigation are <<S_3>>Trump’s<</S_3>> former personal attorney Michael Cohen, <<S_4>>Trump<</S_4>>’s former campaign chairman Paul Manafort, and former White House National Security Adviser Michael Flynn.
+
